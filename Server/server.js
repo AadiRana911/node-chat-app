@@ -7,6 +7,6 @@ var app = express();
 
 
 app.use(express.static(publicPath));
-app.listen(3000, () => {
-    console.log('Server is up and running on localhost 3000')
+app.listen(port, () => {
+    console.log(`Server is up and running on ${port}`)
 });
