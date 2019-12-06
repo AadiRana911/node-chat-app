@@ -13,15 +13,12 @@ var io = socketIO(server)
 app.use(express.static(publicPath));
 
 io.on('connection', (socket) => {
-    console.log(`New User Connected`)
-    socket.on('disconnect', () => {
-        console.log(`User was disconnected`);
-    })
+    console.log(`New User Connected`);
 
     socket.emit('newMessage', generateMessage('Admin', 'Welcome to the chat app'));
 
 
-    socket.broadcast.emit('newMessage', generateMessage('Admin', 'New User Joined'))
+    socket.broadcast.emit('newMessage', generateMessage('Admin', 'New User Joined'));
   
     socket.on('createMessage', (message) => {
         console.log('createMessage', message);
